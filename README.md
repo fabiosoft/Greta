@@ -15,13 +15,13 @@ How to Use It
 -------------
 
 ### Download
-You can use the Greta code AS-IS!  No need to build or recompile--just clone this repo and use the pre-built files in the `greta` folder.  If you like Greta as-is, stop here.
+You can use the Greta code AS-IS!  No need to build or recompile, just clone this repo and use the pre-built files in the `greta` folder.  If you like Greta as-is, stop here.
 
 ### Build
 You can rebuild Greta on your own to tweak it or just so you can say you did. Just remember to tell me too! I am proud of you.
 
 ### Use
-Once you uploaded entire folder, then open Greta, it will load the `Basic Docs Service` and show its APIs.
+Once you uploaded entire folder, then open Greta, it will load the `Basic Docs Service` and show its APIs. In my case I included `sebeto API` i built for my University services and apps.
 You can enter your own server url and click explore to view the API.
 
 ### Customize
@@ -34,8 +34,8 @@ You may choose to customize Greta UI for your organization. Here is an overview 
 
 ### Greta
 To use Greta you should take a look at the source of Greta html page aka `Viewer.html` and customize it. This basically requires you to instantiate a niscidocsUi object and call load() on it as below:
+
 ```javascript
-    
     window.niscidocsUi = new niscidocsUi({
 				discoveryUrl:"sebeto.niscidocs",
                 apiKey:"",
@@ -46,9 +46,10 @@ To use Greta you should take a look at the source of Greta html page aka `Viewer
             });
             window.niscidocsUi.load();
         });
+```
 
 * *discoveryUrl* parameter should point to a resource listing url as per `sebeto.niscidocs`
-* *dom_id parameter* is the the id of a dom element, usually a `div` element inside which Greta will put the user interface for swagger
+* *dom_id parameter* is the the id of a dom element, usually a `div` element inside which Greta will put the user interface for Greta
 * *booleanValues* Greta renders boolean data types as a dropdown. By default it provides a 'true' and 'false' string as the possible choices. You can use this parameter to change the values in dropdown to be something else, for example 0 and 1 by setting booleanValues to new Array(0, 1)
 * *docExpansion* controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details)
 * *onComplete* is a callback function parameter which can be passed to be notified of when Greta has completed rendering successfully.
