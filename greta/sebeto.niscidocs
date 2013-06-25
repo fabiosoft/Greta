@@ -1,0 +1,288 @@
+{
+  "apiVersion": "1.0",
+  "basePath": "http://students.uniparthenope.it:54379",
+  "resourcePath": "",
+  "apis": [
+    {
+      "path": "/authentication.{format}?username={matricola}&password={password}",
+      "description": "Autenticazione Studente",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Autenticazione studente",
+          "notes": "Dati in input matricola e password esegue l'autenticazione sfruttando un'altra API",
+          "responseClass": "auth",
+          "nickname": "getauth",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 404,
+              "reason": "utente non trovato"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/payments.{format}?username={matricola}&password={password}",
+      "description": "Estrae i versamenti Effettuati",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Lista versamenti Effettuati",
+          "notes": "In questo modo otterremo una risposta breve e concisa sulla situazione dell'utente.",
+          "responseClass": "Pays",
+          "nickname": "getPayments",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 431,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 500,
+              "reason": "errore del server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/duepayments.{format}?username={matricola}&password={password}",
+      "description": "Estrae i versamenti in debito",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Lista versamenti in debito",
+          "notes": "In questo modo otterremo una risposta breve e concisa sulla situazione dell'utente.",
+          "responseClass": "duePays",
+          "nickname": "getduePayments",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 431,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 500,
+              "reason": "errore del server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/userinfo.{format}?username={matricola}&password={password}",
+      "description": "Informazioni Studente",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Anagrafica Studente",
+          "notes": "Restituisce le informazioni anagrafiche e di contatto dello studente.",
+          "responseClass": "uinfo",
+          "nickname": "getuinfo",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 404,
+              "reason": "utente non trovato"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/orario.{format}",
+      "description": "Orario Facolta'",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Orario Facolta'",
+          "notes": "Estrazione PDF degli orari delle lezioni per l'Universita' Parthenope",
+          "responseClass": "schedule",
+          "nickname": "getschedule",
+          "errorResponses": [
+            {
+              "code": 404,
+              "reason": "tabella orari non disponibile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/esamiprenotabili.{format}?username={matricola}&password={password}&nullable={nullable}",
+      "description": "Visualizza gli esami prenotabili previsti nel piano di studi dello studente",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Esami prenotabili dallo studente",
+          "notes": "Visualizza gli esami prenotabili previsti nel piano di studi dello studente",
+          "responseClass": "avaibooks",
+          "nickname": "getavaibooks",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "nullable",
+              "description": "se 1 restituisce anche i valori nulli",
+              "paramType": "path",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 431,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 500,
+              "reason": "errore del server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/superati.{format}?username={matricola}&password={password}&nullable={nullable}",
+      "description": "Visualizza gli esami superati dallo studente indicando voto, data e lode.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Esami superati dallo studente",
+          "notes": "Visualizza gli esami superati dallo studente indicando voto, data e lode.",
+          "responseClass": "exmpassed",
+          "nickname": "exmpassed",
+          "parameters": [
+            {
+              "name": "matricola",
+              "description": "matricola studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "password",
+              "description": "password studente",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "nullable",
+              "description": "se 1 restituisce anche i valori nulli",
+              "paramType": "path",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 431,
+              "reason": "parametro mancante"
+            },
+            {
+              "code": 500,
+              "reason": "errore del server"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
