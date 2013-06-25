@@ -91,7 +91,9 @@ To share your changes, [submit a pull request](https://github.com/fabiosoft/Gret
 License
 -------
 
-Copyright 2012-2013 CC BY-NC-SA 3.0 IT
+Copyright 2012-2013 CC BY-NC-SA 3.0 IT 
+
+Non è consentita in alcun modo l'alterazione del nome del progetto __Greta__ in caso di integrazione in qualsivoglia altro progetto senza consenso da parte dell'autore.
 
 [![Licenza Creative Commons](http://i.creativecommons.org/l/by-nc-sa/3.0/it/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/it/)
 
@@ -102,3 +104,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+It is not permitted in any way altering the name of the project __Greta__ in the case of integration in any other project without permission of the author.
